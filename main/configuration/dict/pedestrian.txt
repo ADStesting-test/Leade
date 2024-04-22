@@ -1,0 +1,13 @@
+male
+female
+man
+woman
+child
+kid
+pedestrian
+walker
+bicycle
+bike
+boy
+girl
+cyclist

@@ -1,0 +1,60 @@
+fog
+foggy
+ice fog
+ground fog
+sun
+sunny
+cloud
+cloudy
+thunder
+thunderstorm
+sleet
+small hail
+rime
+depositing rime
+dust
+dusty
+volcanic ash
+blowing dust
+blowing sand
+drifting sand
+blowing obstruction
+smoke
+haze
+widespread dust
+duststorm
+sand
+sandstorm
+well-developed dust
+well-developed dustwhirls
+sand whirls
+diamond dust
+blowing
+tornado
+water spout
+squalls
+funnel cloud
+high wind
+damaging wind
+windy
+spray
+blowing spray
+distant lightning
+precipitation
+liquid precipitation
+solid precipitation
+mist
+drizzle
+drizzle
+rain
+rainy
+rain showers
+snow grains
+snow
+snowy
+snow pellets
+blowing snow
+drifting snow
+ice crystals
+ice pellets
+precipitation

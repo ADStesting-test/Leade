@@ -1,0 +1,34 @@
+car_model = "Lincoln MKZ 2017";
+ego_init_position = ENU (553090.0522572036,4182687.8);
+ego_init_state = (ego_init_position);
+ego_target_position = "lane_40"->50;
+ego_target_state = (ego_target_position);
+vehicle_type = (car_model);
+ego_vehicle = AV(ego_init_state, ego_target_state,vehicle_type);
+
+npc1_type = "Sedan";
+npc1_heading = 0 deg related to ego_vehicle;
+npc1_init_position = IMU (30, 0);
+npc1_init_state = (npc1_init_position, npc1_heading,6.0);
+npc1_waypoints = Waypoint(("lane_759"->1, ,2),("lane_77"->1, ,6));
+npc1_destination = ("lane_77"->100);
+npc1_destination_state = (npc1_destination)
+npc1 = Vehicle(npc1_init_state, npc1_waypoints, npc1_destination, npc1_type);
+...
+ped_position = (553006.37, 4182693.24);
+ped_init_state= (ped_position, , 1.0);
+ped_waypoints = Waypoint(((553003.37, 4182681.82), , 1.0));
+ped_destination_state = ((553006.37, 4182671.82))
+ped = Pedestrian(ped_init_state, ped_waypoints, ped_destination_state);
+
+time = 12:00;
+weather = {rain:0.5, fog: 0.1, wetness: heavy};
+evn = Environment(time, weather);
+
+scenario0 = CreateScenario{     load(map_name);
+                                ego_vehicle;
+                                {npc1, npc2, npc3, npc4, npc5, npc6,npc7, npc8};
+                                {ped};
+                                {}; // no obstacles;
+                                evn
+};

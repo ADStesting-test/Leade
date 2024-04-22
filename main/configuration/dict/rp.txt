@@ -1,0 +1,33 @@
+lane
+street
+side
+crossing
+junction
+turnaround
+turning
+crosswalk
+sidewalk
+railway
+motorway
+trunk
+primary road
+secondary road
+tertiary road
+residential
+track
+bridleway
+living area
+service
+footway
+steps
+cycleway
+intersection
+roadside
+t-junction
+front
+left
+right
+behind
+ahead
+along
+opposite

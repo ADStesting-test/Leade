@@ -1,0 +1,12 @@
+car
+vehicle
+truck
+suv
+bus
+motor
+motorcycle
+motorbike
+van
+driver
+sedan
+SUV

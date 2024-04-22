@@ -1,0 +1,12 @@
+without
+not
+no
+freezing
+slight
+light
+moderate
+heavy
+violent
+severe
+intermittent
+continuous

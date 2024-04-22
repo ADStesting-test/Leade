@@ -1,0 +1,43 @@
+
+map_name = "newyork_city"; 
+
+car_model = "Tesla Model S 2018";
+ego_init_position = "lane_2"->15;
+ego_init_state = (ego_init_position);
+ego_target_position = "lane_12"->85;
+ego_target_state = (ego_target_position);
+vehicle_type = (car_model);
+ego_vehicle = AV(ego_init_state, ego_target_state, vehicle_type);
+
+npc1_type = "PickUp";
+npc1_heading = 45 deg related to ego_vehicle;
+npc1_init_position = ("lane_2"->18); 
+npc1_init_state = (npc1_init_position, npc1_heading,10); 
+npc1_waypoints = Waypoint(("lane_2"->18, ,10),("lane_5"->25, ,8),("lane_8"->50, ,6)); 
+npc1_destination = ("lane_12"->83); 
+npc1_destination_state = (npc1_destination); 
+npc1=Vehicle(npc1_init_state, npc1_waypoints, npc1_destination, npc1_type); 
+
+npc2_type = "Motorcycle";
+npc2_heading = 20 deg related to ego_vehicle;
+npc2_init_position = ("lane_2"->17); 
+npc2_init_state = (npc2_init_position, npc2_heading,13); 
+npc2_waypoints = Waypoint(("lane_2"->17, ,13),("lane_4"->22, ,15), ("lane_6"->29, ,12)); 
+npc2_destination = ("lane_12"->80); 
+npc2_destination_state = (npc2_destination); 
+npc2=Vehicle(npc2_init_state, npc2_waypoints, npc2_destination, npc2_type); 
+
+ped1_type = "Pedestrian";
+ped1_heading = 0 deg related to ego_vehicle;
+ped1_init_position = ("lane_2"->16); 
+ped1_init_state = (ped1_init_position, ped1_heading,2); 
+ped1_waypoints = Waypoint(("lane_2"->16, ,2),("lane_10"->60, ,2)); 
+ped1_destination = ("lane_12"->78); 
+ped1_destination_state = (ped1_destination); 
+ped1=Pedestrian(ped1_init_state, ped1_waypoints, ped1_destination, ped1_type); 
+
+time = 18:30; 
+weather = {rain:0.5, fog:0.2, wetness:0.5, sunny:0.1, cloudiness:0.1}; 
+evn = Environment(time, weather); 
+
+scenario1 = CreateScenario{load(map_name); ego_vehicle; {npc1,npc2,ped1}; {};  {}; evn};

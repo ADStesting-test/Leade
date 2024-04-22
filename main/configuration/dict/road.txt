@@ -1,0 +1,16 @@
+crossing
+junction
+turnaround
+turning
+crosswalk
+sidewalk
+railway
+motorway
+trunk
+residential
+track
+bridleway
+living area
+cycleway
+intersection
+t-junction

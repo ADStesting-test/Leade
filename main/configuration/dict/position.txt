@@ -1,0 +1,6 @@
+front
+left
+right
+ahead
+along
+opposite

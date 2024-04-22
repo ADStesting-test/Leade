@@ -1,0 +1,4 @@
+zebra crossing
+pedestrian sign
+stop sign
+traffic light

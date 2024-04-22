@@ -1,0 +1,9 @@
+slow
+fast
+quickly
+slowly
+u
+forward
+backward
+forwards
+backwards

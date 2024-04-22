@@ -1,0 +1,13 @@
+bystander
+move
+approach
+walk
+run
+cross
+clear path
+look
+wait
+pass
+stand
+along
+across
