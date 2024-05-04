@@ -258,11 +258,9 @@ def pics_to_scenario_program(abs):
                     speed_2.append(random.randint(4, 10))
                     waypoints_2.append(waypoints_2[-1] + random.randint(5, 25))
 
-        scenario_phases_1 = scenario_phases_1 + "npc" + str(i + 1) + "_type = \"" + vehicle_type + "\";\n"
-        scenario_phases_2 = scenario_phases_2 + "npc" + str(i + 1) + "_type = \"" + vehicle_type + "\";\n"
-        scenario_phases_1 = scenario_phases_1 + "npc" + str(i + 1) + "_heading = " + str(degree) + " deg related to ego_vehicle;\n" + "npc" + str(i + 1) + "_init_position = "
+        scenario_phases_1 = scenario_phases_1 + "npc" + str(i + 1) + "_init_position = "
         scenario_phases_1 = scenario_phases_1 + "(\"lane_" + str(lanes_1[0]) + "\"->" + str(waypoints_1[0]) + ");\n" + "npc" + str(
-            i + 1) + "_init_state = (npc" + str(i + 1) + "_init_position, npc" + str(i + 1) + "_heading," + str(speed_1[0]) + ");\n"
+            i + 1) + "_init_state = (npc" + str(i + 1) + "_init_position, , " + str(speed_1[0]) + ");\n"
         scenario_phases_1 = scenario_phases_1 + "npc" + str(i + 1) + "_waypoints = Waypoint("
         scenario_phases_1 = scenario_phases_1 + "(\"lane_" + str(lanes_1[0]) + "\"->" + str(waypoints_1[0]) + ", ," + str(speed_1[0]) + "),"
         for j in range(1, len(lanes_1)):
@@ -273,13 +271,10 @@ def pics_to_scenario_program(abs):
         scenario_phases_1 = scenario_phases_1 + "npc" + str(i + 1) + "_destination_state = (npc" + str(
             i + 1) + "_destination);\n"
         scenario_phases_1 = scenario_phases_1 + "npc" + str(i + 1) + "=Vehicle(npc" + str(i + 1) + "_init_state, npc" + str(
-            i + 1) + "_waypoints, npc" + str(i + 1) + "_destination, npc" + str(i + 1) + "_type); \n\n"
+            i + 1) + "_waypoints, npc" + str(i + 1) + "_destination, " + vehicle_type + "); \n\n"
 
-        scenario_phases_2 = scenario_phases_2 + "npc" + str(i + 1) + "_heading = " + str(
-            0) + " deg related to ego_vehicle;\n"+"npc" + str(i + 1) + "_init_position = "
-        scenario_phases_2 = scenario_phases_2 + "(\"lane_" + str(lanes_2[0]) + "\"->" + str(
-            waypoints_2[0]) + "); \n" + "npc" + str(
-            i + 1) + "_init_state = (npc" + str(i + 1) + "_init_position, npc" + str(i + 1) + "_heading," + str(speed_2[0]) + "); \n"
+        scenario_phases_2 = scenario_phases_2 + "npc" + str(i + 1) + "_init_position = "
+        scenario_phases_2 = scenario_phases_2 + "(\"lane_" + str(lanes_2[0]) + "\"->" + str(waypoints_2[0]) + "); \n" + "npc" + str(i + 1) + "_init_state = (npc" + str(i + 1) + "_init_position, , " + str(speed_2[0]) + "); \n"
         scenario_phases_2 = scenario_phases_2 + "npc" + str(i + 1) + "_waypoints = Waypoint("
         scenario_phases_2 = scenario_phases_2 + "(\"lane_" + str(lanes_2[0]) + "\"->" + str(waypoints_2[0]) + ", ," + str(speed_2[0]) + "),"
         for j in range(1, len(lanes_2)):
@@ -292,7 +287,7 @@ def pics_to_scenario_program(abs):
             i + 1) + "_destination); \n"
         scenario_phases_2 = scenario_phases_2 + "npc" + str(i + 1) + "=Vehicle(npc" + str(
             i + 1) + "_init_state, npc" + str(
-            i + 1) + "_waypoints, npc" + str(i + 1) + "_destination, npc" + str(i + 1) + "_type); \n\n"
+            i + 1) + "_waypoints, npc" + str(i + 1) + "_destination, " + vehicle_type + "); \n\n"
         npcs = npcs + "npc" + str(i+1) + ","
 
     npcs = npcs + "}; "

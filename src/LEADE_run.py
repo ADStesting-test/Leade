@@ -10,8 +10,8 @@ from client_1 import adp_evolution
 
 def run(path):
     pic_folders = os.listdir("../main/video/output_images")
-    pic_path = "video/output_images_"+str(len(pic_folders))
-    video_to_pics(path, pic_path)
+    pic_path = "video/output_images_"+str(len(pic_folders)-1)
+    # video_to_pics(path, pic_path)
     result = extract_pic(pic_path)
     abstract_scenario = parse_pic_string(result)
     scenario1, scenario2, road = pics_to_scenario_program(abstract_scenario)
