@@ -4,18 +4,15 @@ An example scenario is shown as follows.
 
 '''
 egoVehicle is the autonomous vehicle targeted for testing. It is specified using the keyword AV, followed by three parameters: the initial state (ego_init_state), the target state (ego_target_state), the type of the vehicle (vehicle_type).
-npc represents the vehicles not controlled by the autonomous vehicle, specified using the keyword Vehicle, followed by four parameters: the initial state (npc_init_state), the waypoints that it should follow (npc_waypoint), the target state (npc_destination_state), the type of the vehicle (npc_type).
-ped represents the pedestrian, specified using the keyword Pedestrian, followed by three parameters: the initial state (ped_init_state), the waypoints that it should follow (ped_waypoint), the target state (ped_destination_state). Note that the parameters of ped do not include ped_type.
-The state contains: its position, its current speed. When specifying or mutating the state, the position must always be specified, but the speed is optional.
+npc represents the vehicles not controlled by the autonomous vehicle, specified using the keyword Vehicle, followed by three parameters: the initial state (npc_init_state), the waypoints that it should follow (npc_waypoint), the target state (npc_destination_state).
+ped represents the pedestrian, specified using the keyword Pedestrian, followed by three parameters: the initial state (ped_init_state), the waypoints that it should follow (ped_waypoint), the target state (ped_destination_state).
+The state contains: its position, its heading, and its current speed. When specifying the state, the position must always be specified, but the heading and speed are optional.
 The waypoint is a list of states and specified using the keyword Waypoint.
 The position is described by a lane point. An example of lane point is "lane_39"->20, which specifies a point on the lane with ID 39 and the point is 20 meters from the start of the lane.
 env specifies the environment using the keyword Environment, which includes time and weather.
 The weather includes five parameters: sun, rain, fog, wetness, and snow. Each parameter can be quantified using a real value between[0,1].
 There are some constraints:
-the map should not be modified;
-the lane of egoVehicle's initial state and target state should not be modified, and the car model of ego vehicle should not be modified;
-the type of npc should not be modified;
-do not specify the ped_type for ped;
+the lane of egoVehicle's initial state and target state should not be modified;
 at least one lane of npc's waypoint should be the same as the lane of egoVehicle's initial state or target state;
 at least one lane of ped's waypoint should be the same as the lane of egoVehicle's initial state or target state;
 the distance between egoVehicle's initial state and npc's initial state should be less than 20 meters;
@@ -23,5 +20,6 @@ the distance between egoVehicle's initial state and ped's initial state should b
 the distance between egoVehicle's target state and npc's destination state should be less than 20 meters;
 the distance between egoVehicle's target state and ped's destination state should be less than 20 meters.
 the speed should not be less than zero;
+the heading should not be more than 90 deg and not less than 0 degree.
 You can add new states into the Waypoint of npc and ped.
 the lane ID of npc and ped should be selected from the following values:

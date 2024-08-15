@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="681d3fba-c2ba-4089-a856-910c515c40da" name="Changes" comment="" />
+    <list default="true" id="681d3fba-c2ba-4089-a856-910c515c40da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/main/prompt_content/understanding_prompt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/intersection/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/intersection/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/intersection/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/intersection/2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/intersection/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/intersection/3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/test/road/straight/4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/extract_scenario_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/extract_scenario_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/prompt_content/start_prompt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/main/prompt_content/start_prompt.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LEADE_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/LEADE_run.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,11 +58,15 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/python-engine&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/python-engine/main/prompt_content&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python-engine\main\prompt_content" />
+      <recent name="D:\python-engine\main\test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\python-engine\main\video\output_images\output_images_0" />
       <recent name="D:\python-engine\main\scenario_description" />

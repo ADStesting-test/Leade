@@ -1,0 +1,41 @@
+car_model = "Lincoln MKZ 2017";
+ego_init_position = "lane_571"->40;
+ego_init_state = (ego_init_position);
+ego_target_position = "lane_567"->50;
+ego_target_state = (ego_target_position);
+vehicle_type = (car_model);
+ego_vehicle = AV(ego_init_state, ego_target_state,vehicle_type);
+
+npc1_heading = 0 deg related to ego_vehicle;
+npc1_init_position = "lane_570"->35;
+npc1_init_state = (npc1_init_position, npc1_heading,6.0);
+npc1_waypoints = Waypoint(("lane_570"->35, ,6),("lane_571"->100, ,6));
+npc1_destination = ("lane_571"->110);
+npc1_destination_state = (npc1_destination)
+npc1 = Vehicle(npc1_init_state, npc1_waypoints, npc1_destination);
+
+npc2_heading = 0 deg related to ego_vehicle;
+npc2_init_position = "lane_571"->50;
+npc2_init_state = (npc2_init_position, npc2_heading,6.0);
+npc2_waypoints = Waypoint(("lane_571"->50, ,6),("lane_567"->10, ,6));
+npc2_destination = ("lane_567"->60);
+npc2_destination_state = (npc2_destination)
+npc2 = Vehicle(npc2_init_state, npc2_waypoints, npc2_destination);
+
+ped_position = "lane_571"->60;
+ped_init_state= (ped_position, , 1.0);
+ped_waypoints = Waypoint(("lane_571"->60, , 1.0), ("lane_570"->60, , 1.0));
+ped_destination_state = (("lane_568"->60, , 1.0))
+ped = Pedestrian(ped_init_state, ped_waypoints, ped_destination_state);
+
+time = 12:00;
+weather = {rain:0.5, fog: 0.1, wetness: heavy};
+evn = Environment(time, weather);
+
+scenario0 = CreateScenario{     load(map_name);
+                                ego_vehicle;
+                                {npc1, npc2};
+                                {ped};
+                                {}; // no obstacles;
+                                evn
+};

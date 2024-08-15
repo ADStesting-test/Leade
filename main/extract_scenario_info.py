@@ -139,6 +139,111 @@ def extract_pic(path):
 
     return result
 
+def generate_concrete_scenarios(array, road):
+    vehicles = array[1]
+    vehicle_count = len(vehicles)
+    pedestrian = array[2]
+    pedestrian_count = len(pedestrian)
+    prompt_path = "prompt_content/understanding_prompt.txt"
+    with open(prompt_path, 'r') as f:
+        prompt = f.read()
+    prompts = prompt.split("\" \"")
+    vehicle_behaviors = []
+    for each in vehicles:
+        behavior = ""
+        if len(each['behaviors']) > 1:
+            for item in each['behaviors']:
+                if item[0] == "across":
+                    item[0] = "traverse the road"
+                behavior = behavior + item[0] + "+"
+            behavior = behavior[:-1]
+        else:
+            if len(each['behaviors'][0]) == 0:
+                behavior = "park"
+            else:
+                if each['behaviors'][0][0] == "across":
+                    behavior = "traverse the road"
+                else:
+                    behavior = each['behaviors'][0][0]
+        vehicle_behaviors.append(behavior)
+
+    new_prompt = prompts[0]+str(vehicle_count)+prompts[1]
+    for each in vehicle_behaviors:
+        new_prompt = new_prompt + "\"" + each + "\", "
+    new_prompt = new_prompt + "\""
+    if pedestrian_count > 0:
+        new_prompt = new_prompt + "\n"
+        new_prompt = new_prompt + "There are " + str(pedestrian_count) + " pedestrians in each scenario. And their behaviors are \"walk across\" or \"walk along the lane\". \n"
+    new_prompt = new_prompt + prompts[-1]
+    new_prompts = new_prompt.split("'''")
+
+    map_path = "test/road/" + road
+    file_list = os.listdir(map_path)
+    segment = random.randint(1, len(file_list)/2)
+    road_picture = map_path + "/" + str(segment) + ".png"
+    scenario_path = map_path + "/" + str(segment) + ".txt"
+    with open(scenario_path, 'r') as f:
+        scenario_example = f.read()
+    whole_prompt = new_prompts[0] + "\n '''" + scenario_example + "\n" +new_prompts[-1]
+
+    base64_image = encode_one_pic(road_picture)
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    # with open("prompt_content/extract_prompt.txt", "r") as f:
+    #     test_prompt = f.read()
+
+    payload = {
+        "model": "gpt-4-turbo",
+        # "model": "gpt-4-vision-preview",
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": whole_prompt
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/jpeg;base64,{base64_image[0]}",
+                        }
+                    }
+                ]
+            }
+        ],
+        "max_tokens": 300
+    }
+
+    for each in range(1, len(base64_image)):
+        each_value = {"type": "image_url",
+                      "image_url": {
+                          "url": f"data:image/jpeg;base64,{base64_image[each]}",
+                      }}
+        payload["messages"][0]["content"].append(each_value)
+
+    response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+    response_json = response.json()
+    response_content = response_json['choices'][0]['message']
+    result = response_content['content']
+
+    results = result.split("------")
+
+    scenario_path = "scenario_description/scenario_folder" + str(len(file_list))
+    scenario_list = os.listdir(scenario_path)
+    write_path1 = scenario_path + "/scenario_" + str(len(scenario_list)+1) + ".txt"
+    write_path2 = scenario_path + "/scenario_" + str(len(scenario_list) + 2) + ".txt"
+    with open(write_path1, 'w') as f:
+        f.write(results[0])
+    with open(write_path2, 'w') as f:
+        f.write(results[1])
+
+    return result
+
 if __name__ == '__main__':
     # video_to_pics("video/test.mp4")
     result = extract_pic("video/output_images/0")
