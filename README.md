@@ -1,4 +1,4 @@
-# LEADE: An LLM-enhanced Adaptive Multi-objective Genetic Algorithm for Autonomous Driving System Testing
+# Leveraging Traffic Scenarios to Find Safety Violations in Autonomous Driving Systems
 
 This project contains the implementation of LEADE.
 
